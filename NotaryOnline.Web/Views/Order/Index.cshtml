@@ -1,0 +1,40 @@
+﻿@using SharedLib.Extensions
+@model NotaryOnline.Web.Models.OrderModel
+@{
+    ViewData["Title"] = "Заказ";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <!-- Custom Tabs -->
+    <div class="card card-primary">
+        <div class="card-header d-flex p-0">
+        <h3 class="card-title p-3">Заказ</h3>
+        </div><!-- /.card-header -->
+        <div class="card-body">
+        <div class="tab-content">
+            <p>Создатель: @Model.CreatorName</p>
+            <p>Телефон: @Model.CreatorPhone</p>
+            <p>Создан: @Model.CreatedDate</p>
+            <p>Статус
+                <select id="NewsCategoriesID" name="NewsCategoriesID" class="custom-select rounded-0" onchange="$.post('order/status', { orderId: '@Model.Id', value: $(this).val() } )">
+                    @foreach (SelectListItem option in Model.SelectListStatus)
+                    {
+                        <option value="@option.Text" selected="@(option.Text == Model.Status.GetDescription())">@option.Text</option>
+                    }
+                </select>
+            </p>          
+
+            <p><b>Приложенные документы</b><p>
+            @foreach(var doc in Model.Documents)
+            {
+                <p>@Html.ActionLink(doc.Name, "File", "Order", new { documentId = doc.DocumentId, target = "_blank" })</p>
+            }
+            @Html.HiddenFor(m => m.Id)
+
+            <form asp-controller="Order" asp-action="Upload" class="dropzone" id="my-awesome-dropzone" method="post">
+            </form>
+        </div>
+        </div>
+        </div>
+</div>

@@ -1,0 +1,58 @@
+﻿@model NotaryOnline.Web.Models.LoginModel;
+@{
+    ViewData["Title"] = "Вход в личный кабинет";
+}
+
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-7 col-lg-5">
+			<div class="wrap">
+				<div class="img" style="background-image: url(images/bg-1.jpg);"></div>
+				<div class="login-wrap p-4 p-md-5">
+					<div class="d-flex">
+						<div class="w-100">
+			      			<h3 class="mb-4">Вход</h3>
+						</div>
+						<div class="w-100">
+							<p class="social-media d-flex justify-content-end">
+								<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
+								<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+							</p>
+						</div>
+					</div>
+
+					<form asp-controller="Home" asp-action="Login">
+						<div class="form-group mt-3">
+			      			<input type="text" name="Email" class="form-control" required/>
+			      			<label class="form-control-placeholder" for="username">
+								  Имя
+							</label>
+						</div>
+						<div class="form-group">
+							<input type="password" id="password-field" name="Password" class="form-control" />						
+							<label class="form-control-placeholder" for="password">
+								Пароль
+							</label>
+							<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="form-control btn btn-primary rounded submit px-3">Войти</button>
+						</div>
+						<div class="form-group d-md-flex">
+							<div class="w-50 text-left">
+								<label class="checkbox-wrap checkbox-primary mb-0">Запомнить меня
+									<input type="checkbox" checked>
+									<span class="checkmark"></span>
+								</label>
+							</div>
+							<div class="w-50 text-md-right">
+								<a href="#">Забыли пароль?</a>
+							</div>
+						</div>
+					</form>
+					<p class="text-center">Не зарегистрированы? <a data-toggle="tab" href="#signup">Регистрация</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

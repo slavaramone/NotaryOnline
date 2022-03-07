@@ -1,0 +1,60 @@
+﻿@using NotaryOnline.Api.ServiceModel
+@using SharedLib.Extensions
+@model List<NotaryOnline.Web.Models.OrderModel>;
+@{
+    ViewData["Title"] = "Нотариус Онлайн";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <!-- Custom Tabs -->
+    <div class="card">
+        <div class="card-header d-flex p-0">
+        <h3 class="card-title p-3">Заказы</h3>
+        <ul class="nav nav-pills ml-auto p-2">
+            <li class="nav-item"><a class="nav-link @((OrderStatus)ViewData["Status"] == OrderStatus.New ? "active" : "")" onclick="window.location.assign('Orders?status=New')" href="#" data-toggle="tab">Новые</a></li>
+            <li class="nav-item"><a class="nav-link @((OrderStatus)ViewData["Status"] == OrderStatus.Translation ? "active" : "")" onclick="window.location.assign('Orders?status=Translation')" href="#" data-toggle="tab">Перевод</a></li>
+            <li class="nav-item"><a class="nav-link @((OrderStatus)ViewData["Status"] == OrderStatus.Assurance ? "active" : "")" onclick="window.location.assign('Orders?status=Assurance')" href="#" data-toggle="tab">Заверение</a></li>
+            <li class="nav-item"><a class="nav-link @((OrderStatus)ViewData["Status"] == OrderStatus.NeedsClarification ? "active" : "")" onclick="window.location.assign('Orders?status=NeedsClarification')" href="#" data-toggle="tab">Требует уточнения</a></li>
+            <li class="nav-item"><a class="nav-link @((OrderStatus)ViewData["Status"] == OrderStatus.Completed ? "active" : "")" onclick="window.location.assign('Orders?status=Completed')" href="#" data-toggle="tab">Готово</a></li>
+        </ul>
+        </div><!-- /.card-header -->
+        <div class="card-body">
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_1">
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Имя заказчика</th>
+                                <th>Город</th>
+                                <th>Статус</th>
+                                <th>Дата заказа</th>
+                                <th>Срок выполнения</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var order in Model)
+                        {
+                             <tr>
+                                <td>@Html.ActionLink(order.CreatorName, "Index", "Order", new { orderId = order.Id })</td>
+                                <td>@order.City</td>
+                                <td>@order.Status.GetDescription()</td>
+                                <td>@order.CreatedDate</td>
+                                <td>@order.DueDate</td>                    
+                            </tr>              
+                        }
+                        </tbody>
+                    </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+    <!-- /.tab-content -->
+    </div><!-- /.card-body -->
+    </div>
+</div>

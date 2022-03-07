@@ -1,0 +1,70 @@
+﻿@using SharedLib.Extensions
+@model NotaryOnline.Web.Models.UserModel
+@{
+    ViewData["Title"] = "Заказ";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<form method="post" enctype="multipart/form-data" asp-controller="User" asp-action="Index">
+    <div class="container-fluid">
+        <!-- Custom Tabs -->
+        <div class="card card-primary">
+            <div class="card-header d-flex p-0">
+                <h3 class="card-title p-3">Пользователь @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Имя", required="required" }) </h3>
+            </div><!-- /.card-header -->
+            <div class="card-body">
+                <div class="tab-content">
+                    @Html.HiddenFor(m => m.Id)
+                    <p>Создан @Model.CreatedDate</p>
+                    <select id="Role" name="Role" class="custom-select rounded-0">
+                        @foreach (SelectListItem option in Model.SelectListStatus)
+                        {
+                            <option value="@option.Value" selected="@(option.Text == Model.Role.GetDescription())">@option.Text</option>
+                        }
+                    </select>
+                    <br />
+                    <br />
+                    @Html.TextBoxFor(m => m.Profile.DateOfBirth, new { @class = "form-control", @placeholder = "Дата рождения" })
+                    <br />
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                    <br />
+                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @placeholder = "Телефон", required="required" })
+                    <br />
+
+                    @if (Model.Id == Guid.Empty)
+                    {
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Пароль", required="required" })
+                    }                    
+
+                    <p>Активен<p>@Html.CheckBoxFor(m => m.IsActive)
+                    <br />
+                    <p><b>Профиль</b><p>
+                    @Html.HiddenFor(m => m.Profile.Id)
+                    @Html.TextBoxFor(m => m.Profile.Surname, new { @class = "form-control", @placeholder = "Фамилия",})
+                    <br />
+                    @Html.TextBoxFor(m => m.Profile.Name, new { @class = "form-control", @placeholder = "Имя",})
+                    <br />
+                    @Html.TextBoxFor(m => m.Profile.MiddleName, new { @class = "form-control", @placeholder = "Отчество",})
+                    <br />
+                    @Html.TextBoxFor(m => m.Profile.City, new { @class = "form-control", @placeholder = "Город",})
+                    <br />
+                    @Html.TextBoxFor(m => m.Profile.Address, new { @class = "form-control", @placeholder = "Адрес",})
+                    <br />
+                    @Html.TextBoxFor(m => m.Profile.DocNumber, new { @class = "form-control", @placeholder = "Номер документа удостоверяющего личность",})
+                    <br />
+                    @Html.TextBoxFor(m => m.Profile.DocIssueDepartment, new { @class = "form-control", @placeholder = "Кем выдан",})
+                    <br />
+                    @Html.TextBoxFor(m => m.Profile.DocIssueCode, new { @class = "form-control", @placeholder = "Код подразделения",})
+                    <br />
+                    @Html.TextBoxFor(m => m.Profile.DocIssueCountry, new { @class = "form-control", @placeholder = "Страна выдачи",})
+                    <br />
+                    @Html.TextBoxFor(m => m.Profile.DocIssueDate, new { @class = "form-control", @placeholder = "Дата выдачи",})
+                    <br />
+                    @Html.TextBoxFor(m => m.Profile.DocValidTo, new { @class = "form-control", @placeholder = "Срок действия",})
+                    <br />
+                    <input type="submit" class="btn btn-primary" value="Сохранить" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

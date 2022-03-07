@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  notaryonline-api:
+    image: inmar4test/notaryonlineapi
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile-notaryonline-api
+    depends_on:
+    environment:
+      Db__ConnectionString: "Host=146.185.211.188;Port=5432;Database=notarydb;UserId=npdbuser;Password=J9733i2%R1weJ2zo"
+      MongoDb__Host: "146.185.209.34"
+      MongoDb__Port: 27017
+      MongoDb__User: "notary_user"
+      MongoDb__Password: "qm812i7t6Hs45sr"
+      MongoDb__DatabaseName: "notary"
+      MongoDb__CollectionName: "docimages"
+
+  notaryonline-web:
+    image: inmar4test/notaryonlineweb
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile-notaryonline-web
+    depends_on:
+    environment:
+      ApiServiceBaseUrl: "https://apinotary.inmar.dev"
+
+volumes: 
+  datadir:
+  

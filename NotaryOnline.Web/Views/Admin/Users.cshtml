@@ -1,0 +1,56 @@
+﻿@using SharedLib.Extensions
+@model List<NotaryOnline.Web.Models.UserModel>;
+@{
+    ViewData["Title"] = "Пользователи";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <form asp-controller="User" asp-action="Index" method="get">
+        <button type="submit" class="btn btn-block btn-dark">Создать пользователя</button>
+    </form>
+    <br />
+    <!-- Custom Tabs -->
+    <div class="card">
+        <div class="card-header d-flex p-0">
+        <h3 class="card-title p-3">Пользователи</h3>
+        </div><!-- /.card-header -->
+        <div class="card-body">
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_1">
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Имя</th>
+                                <th>Роль</th>
+                                <th>Телефон</th>
+                                <th>Дата регистрации</th>
+                                <th>Активен</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var user in Model)
+                        {
+                             <tr>
+                                <td>@Html.ActionLink(user.Name, "Index", "User", new { userId = user.Id })</td>
+                                <td>@user.Role.GetDescription()</td>
+                                <td>@user.Phone</td>
+                                <td>@user.CreatedDate</td>
+                                <td>@Html.CheckBoxFor(model => user.IsActive, new { disabled = "true" })</td>                    
+                            </tr>              
+                        }
+                        </tbody>
+                    </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+    <!-- /.tab-content -->
+    </div><!-- /.card-body -->    
+    </div>
+</div>

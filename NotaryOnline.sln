@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotaryOnline.Web", "NotaryOnline.Web\NotaryOnline.Web.csproj", "{05F74F4C-E97F-446E-B39B-D2405999DBAB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedLib", "SharedLib\SharedLib.csproj", "{BC19035C-13CA-4F03-9F57-E948F268659A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotaryOnline.Entities", "NotaryOnline.Entities\NotaryOnline.Entities.csproj", "{33C9BCF4-8F11-4278-908B-3836EB188D0C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotaryOnline.DataAccess", "NotaryOnline.DataAccess\NotaryOnline.DataAccess.csproj", "{D2A5C3D5-3878-4673-8F01-EF355BDB8E9B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotaryOnline.Api", "NotaryOnline.Api\NotaryOnline.Api.csproj", "{902614BE-E2BC-46A2-803D-2BFACF0B98B5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotaryOnline.Api.ServiceModel", "NotaryOnline.Api.ServiceModel\NotaryOnline.Api.ServiceModel.csproj", "{4A6985DA-AC9C-4788-B861-8B8413146E99}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotaryOnline.Api.ServiceInterface", "NotaryOnline.Api.ServiceInterface\NotaryOnline.Api.ServiceInterface.csproj", "{BE8F39B7-36AC-4836-90B2-B64B7CAAD1FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05F74F4C-E97F-446E-B39B-D2405999DBAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05F74F4C-E97F-446E-B39B-D2405999DBAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05F74F4C-E97F-446E-B39B-D2405999DBAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05F74F4C-E97F-446E-B39B-D2405999DBAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC19035C-13CA-4F03-9F57-E948F268659A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC19035C-13CA-4F03-9F57-E948F268659A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC19035C-13CA-4F03-9F57-E948F268659A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC19035C-13CA-4F03-9F57-E948F268659A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33C9BCF4-8F11-4278-908B-3836EB188D0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33C9BCF4-8F11-4278-908B-3836EB188D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33C9BCF4-8F11-4278-908B-3836EB188D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33C9BCF4-8F11-4278-908B-3836EB188D0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2A5C3D5-3878-4673-8F01-EF355BDB8E9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2A5C3D5-3878-4673-8F01-EF355BDB8E9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2A5C3D5-3878-4673-8F01-EF355BDB8E9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2A5C3D5-3878-4673-8F01-EF355BDB8E9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{902614BE-E2BC-46A2-803D-2BFACF0B98B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{902614BE-E2BC-46A2-803D-2BFACF0B98B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{902614BE-E2BC-46A2-803D-2BFACF0B98B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{902614BE-E2BC-46A2-803D-2BFACF0B98B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A6985DA-AC9C-4788-B861-8B8413146E99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A6985DA-AC9C-4788-B861-8B8413146E99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A6985DA-AC9C-4788-B861-8B8413146E99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A6985DA-AC9C-4788-B861-8B8413146E99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE8F39B7-36AC-4836-90B2-B64B7CAAD1FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE8F39B7-36AC-4836-90B2-B64B7CAAD1FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE8F39B7-36AC-4836-90B2-B64B7CAAD1FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE8F39B7-36AC-4836-90B2-B64B7CAAD1FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C53898DA-12E0-4DED-B01D-9C8D813B21A8}
+	EndGlobalSection
+EndGlobal
